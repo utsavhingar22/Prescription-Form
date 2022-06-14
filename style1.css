@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#centerDiv {
+    max-width: 700px;
+    padding: 20px 30px;
+    margin: 0 auto;
+}
+
+.centerText {
+    text-align: center;
+}
+
+#prescriptionFormDiv input,
+#prescriptionFormDiv select,
+#prescriptionFormDiv textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#prescriptionFormDiv input[type="submit"],
+#prescriptionFormDiv input[type="reset"] {
+    width: auto;
+    padding: 5px 10px;
+}
+
+
+
+#prescriptionPrintDiv {
+    font-size: 18px;
+}
+
+#prescriptionPrintDiv input {
+    border: 0;
+    border-bottom: 1px solid grey;
+    text-align: center;
+}
+
+#prescriptionPrintDiv textarea {
+    border: 0;
+}
+
+.serialNo {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+#bottom {
+   
+   position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 700px;
+    padding: 20px 5px;
+}

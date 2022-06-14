@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+    </style>
+    <title>Prescription Form</title>
+</head>
+
+<body>
+    <div id="centerDiv">
+        <div class="centerText">
+            <h1>COSMOS HEALTHCARE</h1>
+            <h2>Dr.John Killer M.B.B.S M.S.(Ortho)</h2>
+            751 Victoria 123 Street , South Statue 204<br>
+            Hometown, US 1234<br>
+            PH. (207) 808 2014 2014<br>
+            FAX. (207) 808 2014 2202<br><br>
+            </p>
+        </div>
+        <hr>
+        <div id="prescriptionFormDiv">
+            <h3>Prescription From</h3>
+            <form id="prescriptionForm" action="javascript:handleFormSubmit()">
+                <label for="serialNumber" required>Serial No.</label><br>
+                <input type="number" name="serialNumber" placeholder="" required /><br>
+                <label for="patientName">Patient Name</label><br>
+                <input type="text" name="patientName" placeholder="" required /><br>
+                <label for="patientAge">Patient Age</label><br>
+                <input type="number" min="0" max="100" name="patientAge" placeholder="" required /><br>
+                <label for="patientGender">Gender</label><br>
+                <select name="patientGender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br>
+                <label for="patientAddress">Patient Address</label><br>
+                <input type="name" name="patientAddress" placeholder="" /><br>
+                <label for="prescriptionDate">Prescription Date</label><br>
+                <input type="date" name="prescriptionDate" placeholder="" id="todayDate" required /><br>
+                <label for="prescriptionNotes">Prescription Notes...</label><br>
+                <textarea form="prescriptionForm" name="prescriptionNotes" id="prescriptionNotes" placeholder="..." rows="3" wrap="soft"></textarea><br>
+                <input type="reset" value="Reset">
+                <input type="submit" name="submitForm" value="Make Prescription" /> <br>
+            </form>
+        </div>
+        <div id="prescriptionPrintDiv">
+            <div class="serialNo">
+                <label for="serialNumber" required>S.No.</label>
+                <div name="serialNumber" style="min-width: 10ch; border-bottom: 1px solid grey; text-align: center; display: inline-block;"></div>
+            </div>
+            <label for="patientName">Patient Name: </label>
+            <div name="patientName" style="min-width: 25ch; border-bottom: 1px solid grey; text-align: center; display: inline-block;"></div>
+            <label for="patientAge">Age: </label>
+            <div name="patientAge" style="min-width: 10ch; border-bottom: 1px solid grey; text-align: center; display: inline-block;"></div>
+            <label for="patientGender">Gender: </label>
+            <div name="patientGender" style="min-width: 10ch; border-bottom: 1px solid grey; text-align: center; display: inline-block;"></div><br>
+            <label for="patientAddress">Address: </label>
+            <div name="patientAddress" style="min-width: 30ch; border-bottom: 1px solid grey; display: inline-block;"></div>
+            <label for="prescriptionDate">Date: </label>
+            <input type="date" name="prescriptionDate" readonly /><br>
+            <label for="prescriptionNotes">Notes:</label>
+            <div name="prescriptionNotes" style="min-width: 10ch; display: inline-block;"></div>
+        </div>
+        <div id="bottom">
+            Doctor's Signature____________________________<br>
+            <hr>
+            www.hospitalmail@gamil.com
+        </div>
+    </div>
+    <script type="text/javascript">
+    // getting HTML elements
+    let todayDate = document.querySelector("#todayDate");
+    let prescriptionFormDiv = document.querySelector("#prescriptionFormDiv");
+    let prescriptionPrintDiv = document.querySelector("#prescriptionPrintDiv");
+
+    prescriptionPrintDiv.style.display = "none";
+
+
+    // updating today date
+    todayDate.value = new Date().toISOString().substring(0, 10);
+
+
+    // form submit function
+    function handleFormSubmit() {
+        console.log(prescriptionFormDiv)
+        prescriptionFormDiv.style.display = "none";
+        prescriptionPrintDiv.style.display = "block";
+
+        // prescriptionFormDiv.children[1].elements["serialNumber"]
+        document.getElementsByName("serialNumber")[1].innerHTML = document.getElementsByName("serialNumber")[0].value
+        document.getElementsByName("patientName")[1].innerHTML = document.getElementsByName("patientName")[0].value
+        document.getElementsByName("patientAge")[1].innerHTML = document.getElementsByName("patientAge")[0].value
+        document.getElementsByName("patientGender")[1].innerHTML = document.getElementsByName("patientGender")[0].value
+        document.getElementsByName("patientAddress")[1].innerHTML = document.getElementsByName("patientAddress")[0].value
+        document.getElementsByName("prescriptionDate")[1].value = document.getElementsByName("prescriptionDate")[0].value
+        document.getElementsByName("prescriptionNotes")[1].innerHTML = document.getElementsByName("prescriptionNotes")[0].value
+
+    }
+    </script>
+</body>
+
+</html>
